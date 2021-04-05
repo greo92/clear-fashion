@@ -30,7 +30,7 @@ const setCurrentProducts = ({result, meta}) => {
 const fetchProducts = async (page = 1, size = 12) => {
   try {
     const response = await fetch(
-      `https://server-iota-fawn.vercel.app/products?page=${page}&size=${size}`
+      `https://server-xi-orcin.vercel.app/products?page=${page}&size=${size}`
     );
     const body = await response.json();
 
@@ -86,6 +86,8 @@ const renderPagination = pagination => {
   selectPage.selectedIndex = currentPage - 1;
 };
 
+
+
 /**
  * Render page selector
  * @param  {Object} pagination
@@ -121,3 +123,9 @@ document.addEventListener('DOMContentLoaded', () =>
     .then(setCurrentProducts)
     .then(() => render(currentProducts, currentPagination))
 );
+
+selectPage.addEventListener('change', event => {
+  fetchProducts(parseInt(event.target.value), selectShow.value)
+    .then(setCurrentProducts)
+    .then(() => render(currentProducts, currentPagination));
+});
