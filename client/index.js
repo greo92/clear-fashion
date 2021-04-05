@@ -34,7 +34,8 @@ console.log(MY_FAVORITE_BRANDS[0]);
 // I can find on these e-shops
 // 2. Log the variable
 
-
+const link =('https://www.loom.fr')
+console.log(link)
 
 
 
@@ -51,17 +52,33 @@ console.log(MY_FAVORITE_BRANDS[0]);
 // 1. Create a variable and assign it the number of products
 // 2. Log the variable
 
+var nb_prod = marketplace.length
+console.log(nb_prod)
+
 
 // 🎯 TODO: Brands name
 // 1. Create a variable and assign it the list of brands name only
 // 2. Log the variable
 // 3. Log how many brands we have
 
+var name_brand = []
+marketplace.forEach(elem => name_brand.push(elem.brand))
+let brands1 =[...new Set (name_brand)]
+console.log(brands1)
+
 
 // 🎯 TODO: Sort by price
 // 1. Create a function to sort the marketplace products by price
 // 2. Create a variable and assign it the list of products by price from lowest to highest
 // 3. Log the variable
+
+function compare(a,b) {
+  if (a.price < b.price)
+     return -1;
+  if (a.price > b.price)
+    return 1;
+  return 0;
+}
 
 
 // 🎯 TODO: Sort by date
